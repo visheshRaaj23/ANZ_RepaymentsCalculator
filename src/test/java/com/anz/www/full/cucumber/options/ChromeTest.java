@@ -92,7 +92,7 @@ public class ChromeTest {
 	public void stopDockerGrid() throws Exception {
 		Thread.sleep(15000);
 		Runtime.getRuntime().exec("cmd /c start stop_dockergrid.bat");
-		Thread.sleep(17000);
+		Thread.sleep(30000);
 		Runtime.getRuntime().exec("taskkill /f /im cmd.exe");// Closes command prompts
 		Thread.sleep(10000);
 	}
