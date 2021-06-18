@@ -16,7 +16,7 @@ public class ChromeTest {
 	public void startDockerGrid() {
 		try {
 			Runtime.getRuntime().exec("cmd /c start start_dockergrid.bat");
-			Thread.sleep(30000);
+			Thread.sleep(40000);
 			Runtime.getRuntime().exec("cmd /c start scaleup_dockergrid.bat");
 			Thread.sleep(10000);
 		} catch (Exception ex) {
