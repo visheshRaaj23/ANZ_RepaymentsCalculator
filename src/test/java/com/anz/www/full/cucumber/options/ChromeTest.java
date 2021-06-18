@@ -6,9 +6,24 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 public class ChromeTest {
+	
+	
+	@BeforeSuite
+	public void startDockerGrid() {
+		try {
+			Runtime.getRuntime().exec("cmd /c start start_dockergrid.bat");
+			Thread.sleep(30000);
+			Runtime.getRuntime().exec("cmd /c start scaleup_dockergrid.bat");
+			Thread.sleep(10000);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 	
 	@Test
 	public void Test1()throws Exception {
@@ -66,10 +81,18 @@ public class ChromeTest {
 		RemoteWebDriver driver = new RemoteWebDriver(url,options);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.navigate().to("https://www.audi.in");
+		driver.navigate().to("https://www.hyundai.com/");
 		String title=driver.getTitle();
 		System.out.println(title);
 		driver.quit();
+	}
+	
+	@AfterSuite
+	public void stopDockerGrid()throws Exception {
+		Runtime.getRuntime().exec("cmd /c start stop_dockergrid.bat");
+		Thread.sleep(17000);
+		Runtime.getRuntime().exec("taskkill /f /im cmd.exe");//Closes command prompts
+		Thread.sleep(10000);
 	}
 
 }
