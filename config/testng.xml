@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TitleOperation" parallel="methods">
+<test name="chromeTest">
+<classes>
+<class name="com.anz.www.full.cucumber.options.ChromeTest">
+<methods>
+<include name="Test1"/>
+<include name="Test2"/>
+<include name="Test3"/>
+</methods>
+</class>
+</classes>
+</test>
+<test name="firefoxTest">
+<classes>
+<class name="com.anz.www.full.cucumber.options.ChromeTest">
+<methods>
+<include name="Test4"/>
+</methods>
+</class>
+</classes>
+</test>
+</suite>
