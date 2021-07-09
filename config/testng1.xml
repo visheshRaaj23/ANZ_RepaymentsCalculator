@@ -2,7 +2,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="DemoSuite">
 <parameter name="browser" value="chrome"></parameter>
-<parameter name="hubURL" value="http://localhost:4446/wd/hub"></parameter>
+<!-- http://localhost:4446/wd/hub 
+http://ec2-65-1-91-39.ap-south-1.compute.amazonaws.com:4444/wd/hub
+http://65.1.91.39:4444/wd/hub
+-->
+<parameter name="hubURL" value="http://ec2-65-1-91-39.ap-south-1.compute.amazonaws.com:4444/wd/hub"></parameter>
 <test name="PSR_Scenario1">
 <parameter name="applicationURL" value="https://www.google.com" />
 <classes>
